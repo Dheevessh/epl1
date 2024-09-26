@@ -126,10 +126,7 @@ st.write("Ask me about a match and I'll predict the outcome and stats!")
 result_model, team_score_model, opponent_score_model, team_shots_model, team_sot_model, team_xg_model, team_xa_model, matches, result_accuracy, team_score_error, opponent_score_error, team_shots_error, team_sot_error = load_model()
 
 st.write(f"Model accuracy for result prediction: {result_accuracy:.2f}")
-st.write(f"Team score RMSE: {team_score_error:.2f}")
-st.write(f"Opponent score RMSE: {opponent_score_error:.2f}")
-st.write(f"Team shots RMSE: {team_shots_error:.2f}")
-st.write(f"Team shots on target RMSE: {team_sot_error:.2f}")
+
 
 # Create a form with text input and a button
 with st.form(key="match_predict_form"):
