@@ -131,16 +131,19 @@ st.write(f"Opponent score RMSE: {opponent_score_error:.2f}")
 st.write(f"Team shots RMSE: {team_shots_error:.2f}")
 st.write(f"Team shots on target RMSE: {team_sot_error:.2f}")
 
-# User input question
-question = st.text_input("Ask your question (e.g., 'Who will win if Liverpool vs Arsenal?')")
+# Create a form with text input and a button
+with st.form(key="match_predict_form"):
+    question = st.text_input("Ask your question (e.g., 'Liverpool vs Arsenal?')")
+    submit_button = st.form_submit_button(label="Predict")
 
-if question:
+if submit_button and question:
     team1, team2 = parse_question(question)
 
     if team1 and team2:
         result, team_score, opponent_score, team_shots, team_sot, team_xg, team_xa = predict_match(
             team1, team2, result_model, team_score_model, opponent_score_model, team_shots_model, 
-            team_sot_model, team_xg_model, team_xa_model, matches)
+            team_sot_model, team_xg_model, team_xa_model, matches
+        )
         
         st.write(f"Prediction: {result}")
         st.write(f"Score: {team1} {team_score} - {team2} {opponent_score}")
