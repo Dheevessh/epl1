@@ -4,6 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import accuracy_score, mean_squared_error
 import re
+import os
+
+# Set the port for Streamlit
+port = os.getenv("PORT", "8501")  # Default Streamlit port
 
 # Load and train the model
 @st.cache_data
@@ -127,7 +131,6 @@ result_model, team_score_model, opponent_score_model, team_shots_model, team_sot
 
 st.write(f"Model accuracy for result prediction: {result_accuracy:.2f}")
 
-
 # Create a form with text input and a button
 with st.form(key="match_predict_form"):
     question = st.text_input("Ask your question (e.g., 'Liverpool vs Arsenal?')")
@@ -150,3 +153,7 @@ if submit_button and question:
         st.write(f"Expected assists (xA): {team1} {team_xa}")
     else:
         st.write("Could not understand the teams. Please ask in the format 'Who will win if Team1 vs Team2?'")
+
+# Run the app
+if __name__ == "__main__":
+    st.run(port=port)
