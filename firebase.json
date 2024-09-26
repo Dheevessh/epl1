@@ -1,0 +1,20 @@
+{
+    "hosting": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/app",
+          "run": {
+            "serviceId": "streamlit-app",
+            "region": "us-central1"
+          }
+        }
+      ]
+    }
+  }
+  
