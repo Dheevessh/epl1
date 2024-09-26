@@ -156,4 +156,4 @@ if submit_button and question:
 
 # Run the app
 if __name__ == "__main__":
-    st.run(port=port)
+    st.run(port=int(os.getenv("PORT", 8080)))
