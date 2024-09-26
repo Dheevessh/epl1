@@ -7,3 +7,8 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['run', 'deploy', 'streamlit-app', '--image', 'gcr.io/$PROJECT_ID/streamlit-app', '--platform', 'managed', '--region', 'us-central1', '--allow-unauthenticated']
+
+options:
+  logging: CLOUD_LOGGING_ONLY  # or NONE to suppress logging
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET  # This setting ensures logs are saved to your bucket
+  logsBucket: 'gs://my-build-logs-bucket69'  # Replace with your bucket name
