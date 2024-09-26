@@ -9,6 +9,7 @@ steps:
   args: ['run', 'deploy', 'streamlit-app', '--image', 'gcr.io/$PROJECT_ID/streamlit-app', '--platform', 'managed', '--region', 'us-central1', '--allow-unauthenticated']
 
 options:
-  logging: CLOUD_LOGGING_ONLY  # or NONE to suppress logging
-  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET  # This setting ensures logs are saved to your bucket
-  logsBucket: 'gs://my-build-logs-bucket69'  # Replace with your bucket name
+  logging: CLOUD_LOGGING_ONLY  # You can also set this to NONE if you prefer not to log
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET  # Ensures logs are saved to your specified bucket
+
+timeout: '10m'  # Optional: set a timeout for the build process
