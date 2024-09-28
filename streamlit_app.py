@@ -9,7 +9,7 @@ import re
 @st.cache_data
 def load_model():
     # Load the CSV data (ensure this file is in the correct directory)
-    matches = pd.read_csv("matches5.csv")
+    matches = pd.read_csv("matches2.csv")
 
     # Add the home column (1 for home, 0 for away)
     matches['home'] = 1  # For simplicity, assuming all 'team' entries are home team
